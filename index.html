@@ -1,0 +1,1107 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EcoTrack | Grow a Greener Future</title>
+
+  <style>
+    :root {
+      --green: #236b45;
+      --dark: #17452f;
+      --light: #edf6e9;
+      --cream: #fbfcf6;
+      --text: #24392d;
+      --white: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: var(--cream);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    header {
+      background: linear-gradient(135deg, #17452f, #398557);
+      color: white;
+      text-align: center;
+      padding: 36px 18px;
+    }
+
+    header h1 {
+      font-size: clamp(2rem, 6vw, 3.2rem);
+      margin: 0;
+    }
+
+    header p {
+      margin: 8px 0 0;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      padding: 14px;
+      background: white;
+      border-bottom: 1px solid #dce8d9;
+    }
+
+    nav a {
+      color: var(--green);
+      font-weight: bold;
+      text-decoration: none;
+      padding: 8px 12px;
+      border-radius: 8px;
+    }
+
+    nav a:hover {
+      background: var(--light);
+    }
+
+    main {
+      max-width: 1050px;
+      margin: auto;
+      padding: 24px 16px 50px;
+    }
+
+    section {
+      margin-bottom: 32px;
+      scroll-margin-top: 15px;
+    }
+
+    .section-heading {
+      color: var(--dark);
+      margin-bottom: 14px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 16px;
+    }
+
+    .card {
+      background: var(--white);
+      border: 1px solid #e0e9dc;
+      border-radius: 16px;
+      padding: 22px;
+      box-shadow: 0 4px 14px rgba(29, 72, 43, 0.06);
+    }
+
+    .stat {
+      font-size: 2.1rem;
+      font-weight: bold;
+      color: var(--green);
+      margin: 4px 0;
+    }
+
+    .emoji {
+      font-size: 2rem;
+    }
+
+    label {
+      display: block;
+      font-weight: bold;
+      margin: 12px 0 5px;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 11px;
+      border: 1px solid #c9d9c5;
+      border-radius: 8px;
+      font: inherit;
+      background: white;
+      color: var(--text);
+    }
+
+    textarea {
+      resize: vertical;
+    }
+
+    button {
+      border: 0;
+      border-radius: 9px;
+      padding: 11px 16px;
+      font: inherit;
+      font-weight: bold;
+      cursor: pointer;
+      background: var(--green);
+      color: white;
+      margin-top: 14px;
+    }
+
+    button:hover {
+      background: var(--dark);
+    }
+
+    .secondary {
+      background: #e4f0df;
+      color: var(--dark);
+    }
+
+    .secondary:hover {
+      background: #d4e6ce;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 12px;
+    }
+
+    .muted {
+      color: #617267;
+      font-size: 0.92rem;
+    }
+
+    .activity {
+      border-bottom: 1px solid #e5ece2;
+      padding: 12px 0;
+      overflow-wrap: anywhere;
+    }
+
+    .activity:last-child {
+      border-bottom: 0;
+    }
+
+    .activity strong {
+      color: var(--dark);
+    }
+
+    .media-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 16px;
+      margin-top: 18px;
+    }
+
+    .media-card {
+      background: white;
+      border: 1px solid #e0e9dc;
+      border-radius: 14px;
+      padding: 12px;
+      overflow: hidden;
+    }
+
+    .media-card img, .media-card video {
+      display: block;
+      width: 100%;
+      max-height: 280px;
+      object-fit: contain;
+      background: #f0f4ed;
+      border-radius: 9px;
+    }
+
+    .media-card p { overflow-wrap: anywhere; }
+    .media-card button { margin-top: 4px; }
+
+    .fact {
+      background: var(--light);
+      border-radius: 12px;
+      padding: 15px;
+      margin: 12px 0;
+    }
+
+    .feedback {
+      font-weight: bold;
+      margin-top: 12px;
+    }
+
+    .quiz-option {
+      display: block;
+      font-weight: normal;
+      margin: 10px 0;
+      padding: 10px;
+      background: #f4f8f1;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .quiz-option input {
+      width: auto;
+      margin-right: 8px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 24px 16px;
+      background: #e7f0e2;
+      color: var(--dark);
+    }
+
+    .small-button {
+      padding: 6px 10px;
+      font-size: 0.85rem;
+      margin: 8px 0 0;
+    }
+
+
+    .tree-card {
+      overflow: hidden;
+      padding: 0;
+      border-radius: 18px;
+      transition: transform 0.18s ease, box-shadow 0.18s ease;
+    }
+    .tree-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 22px rgba(29, 72, 43, 0.12);
+    }
+    .tree-art {
+      min-height: 118px;
+      display: grid;
+      place-items: center;
+      font-size: 3.5rem;
+      background: linear-gradient(135deg, #dff5cf, #b9e8cf);
+    }
+    .tree-card:nth-child(2) .tree-art { background: linear-gradient(135deg, #fff0b8, #d5f0b8); }
+    .tree-card:nth-child(3) .tree-art { background: linear-gradient(135deg, #d7efff, #c8e8d2); }
+    .tree-card:nth-child(4) .tree-art { background: linear-gradient(135deg, #ffe0c9, #f7efb5); }
+    .tree-card:nth-child(5) .tree-art { background: linear-gradient(135deg, #eadfff, #ccebd9); }
+    .tree-card:nth-child(6) .tree-art { background: linear-gradient(135deg, #d3f3ec, #e8f6b9); }
+    .tree-card-content { padding: 17px; }
+    .tree-card-content h3 { margin-top: 0; color: var(--dark); }
+    .tree-tag {
+      display: inline-block;
+      background: #e7f4df;
+      color: #245d3c;
+      border-radius: 999px;
+      padding: 3px 9px;
+      font-size: .8rem;
+      font-weight: bold;
+      margin-bottom: 7px;
+    }
+    .quiz-progress {
+      height: 9px;
+      background: #e7eee4;
+      border-radius: 99px;
+      overflow: hidden;
+      margin: 12px 0 18px;
+    }
+    .quiz-progress span {
+      display: block;
+      height: 100%;
+      width: 0;
+      background: linear-gradient(90deg, #7acb65, #238252);
+      transition: width .2s ease;
+    }
+    .quiz-question {
+      background: #f8fbf5;
+      border: 1px solid #e3eddf;
+      border-radius: 13px;
+      padding: 15px;
+      margin: 14px 0;
+    }
+    .quiz-question h3 { margin-top: 0; font-size: 1.02rem; }
+    .quiz-option:has(input:checked) {
+      outline: 2px solid #7bbf83;
+      background: #eaf6e7;
+    }
+    .quiz-category {
+      display: inline-block;
+      font-size: .78rem;
+      font-weight: bold;
+      color: #395b48;
+      background: #e6f0e2;
+      border-radius: 999px;
+      padding: 3px 8px;
+      margin-bottom: 5px;
+    }
+    .tree-tip {
+      background: #fff8d9;
+      border-left: 4px solid #e6bd45;
+      border-radius: 8px;
+      padding: 10px 12px;
+      margin-top: 10px;
+      font-size: .92rem;
+    }
+    .quiz-review { border-top: 1px solid #e1e9dd; padding: 12px 0; }
+    .quiz-review strong { display: block; margin-bottom: 4px; }
+
+    @media (max-width: 480px) {
+      main {
+        padding: 18px 12px 35px;
+      }
+
+      .card {
+        padding: 17px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="emoji">🌍 🌱</div>
+    <h1>EcoTrack</h1>
+    <p>Small actions. Greener future.</p>
+    <p>Track trees, learn about nature, and grow positive habits.</p>
+  </header>
+
+  <nav aria-label="Main navigation">
+    <a href="#dashboard">Dashboard</a>
+    <a href="#tracker">Tree Tracker</a>
+    <a href="#learn">Eco Facts</a>
+    <a href="#quiz">Quiz</a>
+    <a href="#paper-saver">Paper Saver</a>
+    <a href="#gallery">Activity Gallery</a>
+  </nav>
+
+  <main>
+    <section id="dashboard">
+      <h2 class="section-heading">📊 Your Impact Dashboard</h2>
+      <p class="muted">
+        These numbers reflect activities recorded in this browser,
+        not independently verified environmental impact.
+      </p>
+
+      <div class="grid">
+        <div class="card">
+          <div class="emoji">🌳</div>
+          <div class="stat" id="treeTotal">0</div>
+          <strong>Trees recorded as planted</strong>
+        </div>
+
+        <div class="card">
+          <div class="emoji">💧</div>
+          <div class="stat" id="waterTotal">0</div>
+          <strong>Watering activities</strong>
+        </div>
+
+        <div class="card">
+          <div class="emoji">🌿</div>
+          <div class="stat" id="careTotal">0</div>
+          <strong>Other care activities</strong>
+        </div>
+
+        <div class="card">
+          <div class="emoji">📝</div>
+          <div class="stat" id="activityTotal">0</div>
+          <strong>Total activity records</strong>
+        </div>
+      </div>
+    </section>
+
+    <section id="tracker">
+      <h2 class="section-heading">🌱 Tree Planting & Care Tracker</h2>
+
+      <div class="card">
+        <p>
+          Record a real activity you completed. If you haven't planted
+          a tree yet, you can start by planning your first activity.
+        </p>
+
+        <form id="activityForm">
+          <div class="form-row">
+            <div>
+              <label for="activityType">Activity</label>
+              <select id="activityType" required>
+                <option value="plant">Planted trees</option>
+                <option value="water">Watered trees</option>
+                <option value="care">Other tree care</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="quantity">Number of trees / activities</label>
+              <input
+                id="quantity"
+                type="number"
+                min="1"
+                max="10000"
+                value="1"
+                required
+              >
+            </div>
+          </div>
+
+          <label for="activityDate">Date</label>
+          <input id="activityDate" type="date" required>
+
+          <label for="activityNotes">Location or notes (optional)</label>
+          <textarea
+            id="activityNotes"
+            rows="3"
+            maxlength="300"
+            placeholder="Example: Watered two saplings in the school garden."
+          ></textarea>
+
+          <button type="submit">Save Activity 🌿</button>
+          <p id="formMessage" class="feedback" role="status"></p>
+        </form>
+      </div>
+
+      <div class="card" style="margin-top: 18px;">
+        <h3>Recent Activities</h3>
+        <p class="muted">Your latest records appear here.</p>
+        <div id="activityList">No activities recorded yet.</div>
+      </div>
+    </section>
+
+    <section id="learn">
+      <h2 class="section-heading">📚 Environmental Facts</h2>
+
+      <div class="grid">
+        <div class="card">
+          <div class="emoji">🌳</div>
+          <h3>Trees need care</h3>
+          <p>
+            Planting is only the beginning. Suitable species, healthy soil,
+            enough water, and ongoing care help young trees survive.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="emoji">💧</div>
+          <h3>Save water</h3>
+          <p>
+            Repairing leaks, turning off taps when not needed, and using
+            water thoughtfully can reduce unnecessary waste.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="emoji">♻️</div>
+          <h3>Reduce waste</h3>
+          <p>
+            Avoiding unnecessary purchases and reusing items can reduce
+            the resources needed to make new products.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="emoji">🦋</div>
+          <h3>Protect biodiversity</h3>
+          <p>
+            Native plants can provide food and shelter for local wildlife.
+            Choose planting projects suited to the local ecosystem.
+          </p>
+        </div>
+      </div>
+    </section>
+
+
+    <section id="trees">
+      <h2 class="section-heading">🌳 Tree Explorer: Meet Our Green Neighbours</h2>
+      <p>Tap into the benefits of different trees. Benefits depend on local conditions and the species planted.</p>
+      <div class="grid">
+        <article class="card tree-card">
+          <div class="tree-art" aria-hidden="true">🌿</div>
+          <div class="tree-card-content">
+            <span class="tree-tag">Everyday uses</span>
+            <h3>Neem</h3>
+            <p>Neem is valued in India for shade and several traditional uses. Its flowers and other parts can also be part of local food webs.</p>
+            <div class="tree-tip"><strong>Care tip:</strong> Choose a suitable sunny location and allow enough room for its mature size.</div>
+          </div>
+        </article>
+        <article class="card tree-card">
+          <div class="tree-art" aria-hidden="true">🌳</div>
+          <div class="tree-card-content">
+            <span class="tree-tag">Wildlife habitat</span>
+            <h3>Banyan</h3>
+            <p>Its broad canopy and spreading structure can offer shelter and nesting places for birds and other wildlife.</p>
+            <div class="tree-tip"><strong>Care tip:</strong> Banyans need plenty of space; they are not suitable for every small garden.</div>
+          </div>
+        </article>
+        <article class="card tree-card">
+          <div class="tree-art" aria-hidden="true">🍃</div>
+          <div class="tree-card-content">
+            <span class="tree-tag">Shade and habitat</span>
+            <h3>Peepal</h3>
+            <p>Peepal trees can provide shade, support wildlife and contribute to the structure of urban and rural green spaces.</p>
+            <div class="tree-tip"><strong>Care tip:</strong> Plant away from foundations, pipes and narrow pavements.</div>
+          </div>
+        </article>
+        <article class="card tree-card">
+          <div class="tree-art" aria-hidden="true">🥭</div>
+          <div class="tree-card-content">
+            <span class="tree-tag">Food and shade</span>
+            <h3>Mango</h3>
+            <p>Mango trees provide fruit and shade; flowers and fruit can be resources for some insects, birds and other animals.</p>
+            <div class="tree-tip"><strong>Care tip:</strong> Check local climate, space and water needs before planting.</div>
+          </div>
+        </article>
+        <article class="card tree-card">
+          <div class="tree-art" aria-hidden="true">🌲</div>
+          <div class="tree-card-content">
+            <span class="tree-tag">Forest ecosystems</span>
+            <h3>Teak</h3>
+            <p>Teak is a valuable timber tree. Responsible forest management helps reduce pressure on forests and habitats.</p>
+            <div class="tree-tip"><strong>Care tip:</strong> Choose species recommended for your region rather than planting a tree just because it is popular.</div>
+          </div>
+        </article>
+        <article class="card tree-card">
+          <div class="tree-art" aria-hidden="true">🌼</div>
+          <div class="tree-card-content">
+            <span class="tree-tag">Local biodiversity</span>
+            <h3>Native flowering trees</h3>
+            <p>Suitable native species can provide nectar, fruit, nesting opportunities and shelter for wildlife in the local ecosystem.</p>
+            <div class="tree-tip"><strong>Care tip:</strong> Ask a local nursery, botanist or forest department which species suit your area.</div>
+          </div>
+        </article>
+      </div>
+      <div class="fact">
+        <strong>🌎 Why trees matter to people:</strong>
+        Trees store carbon as they grow, provide shade, help reduce some local heat, protect soil in suitable locations, support the water cycle and create habitats. Their benefits depend on species, climate, location and care.
+      </div>
+    </section>
+
+
+    <section id="quiz">
+      <h2 class="section-heading">🧠 EcoQuiz Challenge</h2>
+      <p>Explore environmental science, Indian conservation movements and logical reasoning. Answer all questions, then check your score and explanations.</p>
+      <div class="card">
+        <div class="grid">
+          <div><span class="quiz-category">🌱 Environment</span><p class="muted">Trees, biodiversity and waste</p></div>
+          <div><span class="quiz-category">🇮🇳 Green history</span><p class="muted">People-powered conservation</p></div>
+          <div><span class="quiz-category">🧩 Logic</span><p class="muted">Patterns and problem-solving</p></div>
+        </div>
+        <div class="quiz-progress" aria-label="Quiz progress"><span id="quizProgress"></span></div>
+        <p id="quizProgressText" class="muted">0 of 12 answered</p>
+        <form id="quizForm">
+          <div id="quizQuestions"></div>
+          <button type="submit">Check My Answers 🌟</button>
+          <button type="button" class="secondary" id="resetQuiz">Try Again</button>
+          <p id="quizResult" class="feedback" role="status" aria-live="polite"></p>
+          <div id="quizReview"></div>
+        </form>
+      </div>
+    </section>
+
+
+    <section id="paper-saver">
+      <h2 class="section-heading">📄 Paper Saver Tracker</h2>
+      <p>Record paper your team reuses, avoids printing, or sends for recycling. Keep these categories separate and record each sheet only once.</p>
+      <div class="grid">
+        <div class="card"><div class="emoji">♻️</div><div class="stat" id="paperReusedTotal">0</div><strong>Sheets reused</strong></div>
+        <div class="card"><div class="emoji">💻</div><div class="stat" id="paperAvoidedTotal">0</div><strong>Sheets of printing avoided</strong></div>
+        <div class="card"><div class="emoji">📦</div><div class="stat" id="paperRecycledTotal">0</div><strong>Sheets sent for recycling</strong></div>
+        <div class="card"><div class="emoji">🙌</div><div class="stat" id="paperParticipantsTotal">0</div><strong>Participation entries</strong></div>
+      </div>
+      <div class="card" style="margin-top:16px">
+        <h3>Log a paper-saving action</h3>
+        <form id="paperForm">
+          <div class="form-row">
+            <div><label for="paperType">Action category</label><select id="paperType" required><option value="reused">Sheets reused</option><option value="avoided">Sheets of printing avoided</option><option value="recycled">Sheets sent for recycling</option></select></div>
+            <div><label for="paperQuantity">Number of sheets</label><input id="paperQuantity" type="number" min="1" max="100000" step="1" required placeholder="e.g. 30"></div>
+            <div><label for="paperParticipants">Students involved (optional)</label><input id="paperParticipants" type="number" min="0" max="10000" step="1" value="0"></div>
+            <div><label for="paperDate">Date</label><input id="paperDate" type="date" required></div>
+          </div>
+          <label for="paperNotes">Notes (optional)</label>
+          <input id="paperNotes" type="text" maxlength="180" placeholder="e.g. Made rough-work notebooks from one-sided sheets">
+          <button type="submit">Save Paper Action 📄</button>
+          <p id="paperMessage" class="muted" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+      <div class="card" style="margin-top:16px">
+        <h3>Recent paper-saving actions</h3>
+        <div id="paperActivityList" aria-live="polite">No paper actions recorded yet.</div>
+        <p class="muted">Records are saved in this browser on this device. They are not shared with other students or synced to a published website. These counts are based on your team's entries and are not independently verified.</p>
+      </div>
+    </section>
+
+    <section id="gallery">
+      <div class="card">
+        <h2 class="section-heading">📸 EcoTrack Activity Gallery</h2>
+        <p>Save photos and short videos that document your team's environmental activities.</p>
+        <form id="mediaForm">
+          <label for="mediaFiles">Choose photos or videos</label>
+          <input id="mediaFiles" type="file" accept="image/*,video/*" multiple required>
+          <label for="mediaCaption">Activity caption (optional)</label>
+          <input id="mediaCaption" type="text" maxlength="160" placeholder="e.g., Watering saplings at school">
+          <button type="submit">Add to Gallery</button>
+          <p id="mediaMessage" class="muted" role="status"></p>
+        </form>
+        <p class="muted"><strong>Privacy:</strong> Get permission from your school and everyone shown before taking or sharing media. For students under 18, ask a teacher/parent or guardian too. Avoid showing full names, school IDs, addresses, or other private details.</p>
+        <p class="muted">Files are stored only in this browser on this device. They are not uploaded to a website or shared with other visitors. Clearing browser data may remove them; keep your own backup.</p>
+        <div id="mediaGallery" class="media-grid" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <section>
+      <div class="card">
+        <h2 class="section-heading">🌎 Our EcoTrack Mission</h2>
+        <p>
+          Encourage students to learn about trees, record their care,
+          share environmental knowledge, and take practical action.
+        </p>
+        <p class="muted">
+          Next steps for a school project: involve your school with
+          permission, identify suitable native species, record real
+          activities, and check on planted trees over time.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <strong>EcoTrack 🌱</strong>
+    <p>Learn. Act. Record. Grow.</p>
+    <p class="muted">A student-led environmental learning project.</p>
+  </footer>
+
+  <script>
+    const STORAGE_KEY = "ecotrackActivitiesV1";
+
+    const form = document.getElementById("activityForm");
+    const activityList = document.getElementById("activityList");
+    const formMessage = document.getElementById("formMessage");
+
+    const dateInput = document.getElementById("activityDate");
+    dateInput.value = new Date().toLocaleDateString("en-CA");
+
+    function loadActivities() {
+      try {
+        const saved = localStorage.getItem(STORAGE_KEY);
+        const data = saved ? JSON.parse(saved) : [];
+        return Array.isArray(data) ? data : [];
+      } catch (error) {
+        return [];
+      }
+    }
+
+    let activities = loadActivities();
+
+    function saveActivities() {
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(activities));
+        return true;
+      } catch (error) {
+        formMessage.textContent =
+          "Your browser could not save the data. Check browser storage settings.";
+        return false;
+      }
+    }
+
+    function renderDashboard() {
+      const trees = activities
+        .filter(item => item.type === "plant")
+        .reduce((sum, item) => sum + item.quantity, 0);
+
+      const watering = activities
+        .filter(item => item.type === "water")
+        .length;
+
+      const care = activities
+        .filter(item => item.type === "care")
+        .length;
+
+      document.getElementById("treeTotal").textContent = trees;
+      document.getElementById("waterTotal").textContent = watering;
+      document.getElementById("careTotal").textContent = care;
+      document.getElementById("activityTotal").textContent = activities.length;
+    }
+
+    function renderActivities() {
+      activityList.replaceChildren();
+
+      if (activities.length === 0) {
+        activityList.textContent = "No activities recorded yet.";
+        return;
+      }
+
+      const names = {
+        plant: "🌳 Planted trees",
+        water: "💧 Watered trees",
+        care: "🌿 Other tree care"
+      };
+
+      activities.slice(0, 20).forEach(item => {
+        const entry = document.createElement("div");
+        entry.className = "activity";
+
+        const title = document.createElement("strong");
+        title.textContent =
+          (names[item.type] || "🌱 Activity") +
+          " — " + item.quantity +
+          (item.type === "plant" ? " tree(s)" : " tree(s)/activity units");
+
+        const details = document.createElement("div");
+        details.className = "muted";
+        details.textContent = item.date +
+          (item.notes ? " · " + item.notes : "");
+
+        const remove = document.createElement("button");
+        remove.type = "button";
+        remove.className = "secondary small-button";
+        remove.textContent = "Delete record";
+        remove.setAttribute("aria-label", "Delete activity record");
+
+        remove.addEventListener("click", () => {
+          if (confirm("Delete this activity record?")) {
+            activities = activities.filter(activity => activity.id !== item.id);
+            if (saveActivities()) {
+              renderDashboard();
+              renderActivities();
+              formMessage.textContent = "Record deleted.";
+            }
+          }
+        });
+
+        entry.append(title, details, remove);
+        activityList.appendChild(entry);
+      });
+
+      if (activities.length > 20) {
+        const note = document.createElement("p");
+        note.className = "muted";
+        note.textContent = "Showing the latest 20 of " + activities.length + " records.";
+        activityList.appendChild(note);
+      }
+    }
+
+    form.addEventListener("submit", event => {
+      event.preventDefault();
+
+      const type = document.getElementById("activityType").value;
+      const quantity = Number(document.getElementById("quantity").value);
+      const date = dateInput.value;
+      const notes = document.getElementById("activityNotes").value.trim();
+
+      if (!Number.isInteger(quantity) || quantity < 1 || quantity > 10000) {
+        formMessage.textContent = "Enter a whole number between 1 and 10,000.";
+        return;
+      }
+
+      if (!date) {
+        formMessage.textContent = "Please select a date.";
+        return;
+      }
+
+      const activity = {
+        id: Date.now().toString() + Math.random().toString(16).slice(2),
+        type,
+        quantity,
+        date,
+        notes
+      };
+
+      activities.unshift(activity);
+
+      if (!saveActivities()) {
+        activities.shift();
+        return;
+      }
+
+      renderDashboard();
+      renderActivities();
+      form.reset();
+      dateInput.value = new Date().toLocaleDateString("en-CA");
+      document.getElementById("quantity").value = 1;
+      formMessage.textContent = "Activity saved successfully! 🌱";
+    });
+
+
+    const quizQuestions = [
+      { category: "🌱 Environment", question: "What is one important role of trees in the carbon cycle?", options: ["They absorb carbon dioxide as they grow", "They turn all pollution into oxygen", "They stop every greenhouse gas emission", "They create carbon from nothing"], answer: 0, explanation: "Growing trees take in carbon dioxide through photosynthesis and store carbon in their tissues." },
+      { category: "🇮🇳 Green history", question: "The Chipko Movement is especially associated with people doing what to protect trees?", options: ["Hugging trees to resist their felling", "Planting only ornamental plants indoors", "Replacing forests with roads", "Collecting timber for export"], answer: 0, explanation: "The Chipko Movement in the Himalayas became known for community members embracing trees to oppose their cutting." },
+      { category: "🇮🇳 Green history", question: "The Appiko Movement, inspired in part by Chipko, became prominent in which Indian state?", options: ["Karnataka", "Punjab", "Bihar", "Rajasthan"], answer: 0, explanation: "Appiko emerged in Karnataka's Western Ghats in the 1980s to protect forests." },
+      { category: "🇮🇳 Green history", question: "The Bishnoi community is widely remembered for a tradition of protecting which part of nature?", options: ["Trees and wildlife", "Only city buildings", "Only mineral resources", "Plastic packaging"], answer: 0, explanation: "Bishnoi traditions have long emphasized protecting living beings and trees; the Khejarli sacrifice is a notable historical example." },
+      { category: "🌱 Environment", question: "Why can native tree species be a good choice for local planting?", options: ["They may support local wildlife and suit local conditions", "They never need any care", "Every native tree grows well in every location", "They remove the need to protect habitats"], answer: 0, explanation: "Well-chosen native species can provide food and habitat and may be adapted to local conditions, but the right species and site still matter." },
+      { category: "🌱 Environment", question: "Which action best follows the waste-reduction idea of reuse?", options: ["Use a sturdy container again when safe and suitable", "Throw away every container after one use", "Buy a new item whenever possible", "Mix recyclable material with food waste"], answer: 0, explanation: "Reusing a suitable item can reduce demand for new materials and help prevent waste." },
+      { category: "🧩 Logic", question: "A school plants 4 saplings on Monday and twice as many on Tuesday. How many saplings are planted in total?", options: ["8", "10", "12", "16"], answer: 2, explanation: "Tuesday's number is 2 × 4 = 8; together, 4 + 8 = 12 saplings." },
+      { category: "🧩 Logic", question: "Find the next number: 3, 6, 12, 24, __.", options: ["30", "36", "42", "48"], answer: 3, explanation: "Each number doubles: 24 × 2 = 48." },
+      { category: "🧩 Logic", question: "A volunteer checks 5 trees each day for 4 days. How many tree-checks are recorded if each tree is checked once per day?", options: ["9", "15", "20", "25"], answer: 2, explanation: "5 tree-checks per day × 4 days = 20 tree-checks." },
+      { category: "🌱 Environment", question: "Why should newly planted saplings be checked after planting?", options: ["To assess water needs, damage and survival", "To ensure they are never watered", "To remove every new leaf", "To prove that planting alone guarantees survival"], answer: 0, explanation: "Follow-up care helps identify stress or damage and gives saplings a better chance to establish." },
+      { category: "🧩 Logic", question: "Three teams each collect 8 pieces of litter. If they collect 5 more pieces together, what is the total?", options: ["24", "27", "29", "32"], answer: 2, explanation: "Three teams collect 3 × 8 = 24 pieces; adding 5 gives 29." },
+      { category: "🌱 Environment", question: "Which statement about trees and the water cycle is most accurate?", options: ["Trees can take up water and release water vapour through transpiration", "Trees make drought impossible", "All rain comes directly from a single tree", "Tree roots create unlimited fresh water"], answer: 0, explanation: "Trees absorb water through roots and release some as water vapour through leaves, contributing to the water cycle." }
+    ];
+
+    const quizQuestionsContainer = document.getElementById("quizQuestions");
+    const quizProgress = document.getElementById("quizProgress");
+    const quizProgressText = document.getElementById("quizProgressText");
+    const quizReview = document.getElementById("quizReview");
+
+    function renderQuizQuestions() {
+      quizQuestionsContainer.replaceChildren();
+      quizQuestions.forEach((item, index) => {
+        const card = document.createElement("div");
+        card.className = "quiz-question";
+        const category = document.createElement("span");
+        category.className = "quiz-category";
+        category.textContent = item.category;
+        const title = document.createElement("h3");
+        title.textContent = (index + 1) + ". " + item.question;
+        card.append(category, title);
+        item.options.forEach((option, optionIndex) => {
+          const label = document.createElement("label");
+          label.className = "quiz-option";
+          const radio = document.createElement("input");
+          radio.type = "radio";
+          radio.name = "ecoQ" + index;
+          radio.value = String(optionIndex);
+          radio.required = true;
+          radio.addEventListener("change", updateQuizProgress);
+          label.append(radio, document.createTextNode(option));
+          card.appendChild(label);
+        });
+        quizQuestionsContainer.appendChild(card);
+      });
+      updateQuizProgress();
+    }
+
+    function updateQuizProgress() {
+      const answered = quizQuestions.filter((_, index) =>
+        document.querySelector('input[name="ecoQ' + index + '"]:checked')
+      ).length;
+      quizProgress.style.width = (answered / quizQuestions.length * 100) + "%";
+      quizProgressText.textContent = answered + " of " + quizQuestions.length + " answered";
+    }
+
+    document.getElementById("quizForm").addEventListener("submit", event => {
+      event.preventDefault();
+      let score = 0;
+      quizReview.replaceChildren();
+
+      quizQuestions.forEach((item, index) => {
+        const chosen = document.querySelector('input[name="ecoQ' + index + '"]:checked');
+        const isCorrect = chosen && Number(chosen.value) === item.answer;
+        if (isCorrect) score++;
+
+        const review = document.createElement("div");
+        review.className = "quiz-review";
+        const title = document.createElement("strong");
+        title.textContent = (isCorrect ? "✅ " : "🌱 ") + (index + 1) + ". " + (isCorrect ? "You got it!" : "Let's learn");
+        const detail = document.createElement("p");
+        detail.textContent = "Answer: " + item.options[item.answer] + ". " + item.explanation;
+        review.append(title, detail);
+        quizReview.appendChild(review);
+      });
+
+      document.getElementById("quizResult").textContent =
+        "Your score: " + score + " out of " + quizQuestions.length + " (" +
+        Math.round(score / quizQuestions.length * 100) + "%). " +
+        (score === quizQuestions.length ? "Amazing eco knowledge! 🌟" :
+        score >= 8 ? "Great work—review the explanations to grow your knowledge! 🌿" :
+        "Every answer is a chance to learn. Review the explanations and try again! 🌱");
+      document.getElementById("quizResult").scrollIntoView({ behavior: "smooth", block: "nearest" });
+    });
+
+    document.getElementById("resetQuiz").addEventListener("click", () => {
+      document.getElementById("quizForm").reset();
+      document.getElementById("quizResult").textContent = "";
+      quizReview.replaceChildren();
+      updateQuizProgress();
+    });
+
+    // Local-only media gallery: files remain in this browser using IndexedDB.
+    const mediaForm = document.getElementById("mediaForm");
+    const mediaFiles = document.getElementById("mediaFiles");
+    const mediaCaption = document.getElementById("mediaCaption");
+    const mediaGallery = document.getElementById("mediaGallery");
+    const mediaMessage = document.getElementById("mediaMessage");
+    let mediaDb;
+
+    function openMediaDb() {
+      return new Promise((resolve, reject) => {
+        const request = indexedDB.open("EcoTrackMediaDB", 1);
+        request.onupgradeneeded = () => {
+          const db = request.result;
+          if (!db.objectStoreNames.contains("media")) {
+            db.createObjectStore("media", { keyPath: "id", autoIncrement: true });
+          }
+        };
+        request.onsuccess = () => resolve(request.result);
+        request.onerror = () => reject(request.error);
+      });
+    }
+
+    function mediaTransaction(mode, action) {
+      return new Promise((resolve, reject) => {
+        const tx = mediaDb.transaction("media", mode);
+        const request = action(tx.objectStore("media"));
+        tx.oncomplete = () => resolve(request ? request.result : undefined);
+        tx.onerror = () => reject(tx.error);
+        tx.onabort = () => reject(tx.error || new Error("Storage operation was cancelled."));
+      });
+    }
+
+    async function renderMediaGallery() {
+      mediaGallery.replaceChildren();
+      try {
+        const items = await mediaTransaction("readonly", store => store.getAll());
+        items.sort((a, b) => b.createdAt - a.createdAt);
+        if (!items.length) {
+          const empty = document.createElement("p");
+          empty.className = "muted";
+          empty.textContent = "Your activity gallery is empty. Add a photo or video to begin.";
+          mediaGallery.appendChild(empty);
+          return;
+        }
+        items.forEach(item => {
+          const card = document.createElement("article");
+          card.className = "media-card";
+          const url = URL.createObjectURL(item.file);
+          const preview = document.createElement(item.file.type.startsWith("video/") ? "video" : "img");
+          preview.src = url;
+          if (preview.tagName === "VIDEO") {
+            preview.controls = true;
+            preview.preload = "metadata";
+          } else {
+            preview.alt = item.caption ? "Activity photo: " + item.caption : "EcoTrack activity photo";
+            preview.loading = "lazy";
+          }
+          const caption = document.createElement("p");
+          caption.textContent = item.caption || "EcoTrack activity";
+          const date = document.createElement("p");
+          date.className = "muted";
+          date.textContent = new Date(item.createdAt).toLocaleDateString();
+          const remove = document.createElement("button");
+          remove.type = "button";
+          remove.className = "secondary";
+          remove.textContent = "Remove file";
+          remove.addEventListener("click", async () => {
+            if (!confirm("Remove this file from this browser's EcoTrack gallery?")) return;
+            try {
+              await mediaTransaction("readwrite", store => store.delete(item.id));
+              URL.revokeObjectURL(url);
+              renderMediaGallery();
+            } catch (error) {
+              mediaMessage.textContent = "Could not remove the file. Please try again.";
+            }
+          });
+          card.append(preview, caption, date, remove);
+          mediaGallery.appendChild(card);
+        });
+      } catch (error) {
+        mediaMessage.textContent = "Gallery storage is unavailable in this browser. Try opening the file in a current version of Chrome or Edge.";
+      }
+    }
+
+    mediaForm.addEventListener("submit", async event => {
+      event.preventDefault();
+      const files = Array.from(mediaFiles.files || []);
+      if (!files.length) {
+        mediaMessage.textContent = "Choose at least one photo or video first.";
+        return;
+      }
+      const maxFileSize = 100 * 1024 * 1024;
+      const invalid = files.find(file => !(file.type.startsWith("image/") || file.type.startsWith("video/")) || file.size > maxFileSize);
+      if (invalid) {
+        mediaMessage.textContent = "Please choose image/video files smaller than 100 MB each.";
+        return;
+      }
+      try {
+        for (const file of files) {
+          await mediaTransaction("readwrite", store => store.add({
+            file,
+            caption: mediaCaption.value.trim(),
+            createdAt: Date.now()
+          }));
+        }
+        mediaMessage.textContent = files.length + (files.length === 1 ? " file added to your local gallery." : " files added to your local gallery.");
+        mediaForm.reset();
+        await renderMediaGallery();
+      } catch (error) {
+        mediaMessage.textContent = "The browser could not save these files. Try fewer or smaller files and check available storage.";
+      }
+    });
+
+    openMediaDb().then(db => {
+      mediaDb = db;
+      renderMediaGallery();
+    }).catch(() => {
+      mediaMessage.textContent = "Gallery storage could not start. Try opening this file in an updated browser.";
+    });
+
+
+    // Paper Saver Tracker uses its own storage key and does not change tree records.
+    const PAPER_STORAGE_KEY = "ecotrackPaperActionsV1";
+    const paperForm = document.getElementById("paperForm");
+    const paperDate = document.getElementById("paperDate");
+    const paperMessage = document.getElementById("paperMessage");
+    const paperActivityList = document.getElementById("paperActivityList");
+    paperDate.value = new Date().toLocaleDateString("en-CA");
+
+    function loadPaperActions() {
+      try {
+        const saved = JSON.parse(localStorage.getItem(PAPER_STORAGE_KEY) || "[]");
+        return Array.isArray(saved) ? saved : [];
+      } catch (error) { return []; }
+    }
+    let paperActions = loadPaperActions();
+
+    function renderPaperActions() {
+      const totals = { reused: 0, avoided: 0, recycled: 0, participants: 0 };
+      paperActions.forEach(item => {
+        if (Object.prototype.hasOwnProperty.call(totals, item.type)) totals[item.type] += Number(item.quantity) || 0;
+        totals.participants += Number(item.participants) || 0;
+      });
+      document.getElementById("paperReusedTotal").textContent = totals.reused.toLocaleString();
+      document.getElementById("paperAvoidedTotal").textContent = totals.avoided.toLocaleString();
+      document.getElementById("paperRecycledTotal").textContent = totals.recycled.toLocaleString();
+      document.getElementById("paperParticipantsTotal").textContent = totals.participants.toLocaleString();
+      paperActivityList.replaceChildren();
+      if (!paperActions.length) {
+        paperActivityList.textContent = "No paper actions recorded yet.";
+        return;
+      }
+      const labels = { reused: "♻️ Sheets reused", avoided: "💻 Sheets of printing avoided", recycled: "📦 Sheets sent for recycling" };
+      paperActions.slice().reverse().slice(0, 30).forEach(item => {
+        const entry = document.createElement("div");
+        entry.className = "activity";
+        const title = document.createElement("strong");
+        title.textContent = `${labels[item.type] || "Paper action"}: ${Number(item.quantity).toLocaleString()} sheet(s)`;
+        const details = document.createElement("div");
+        details.className = "muted";
+        details.textContent = `${item.date}${item.participants ? " · Students involved: " + item.participants : ""}${item.notes ? " · " + item.notes : ""}`;
+        const remove = document.createElement("button");
+        remove.type = "button";
+        remove.className = "secondary small-button";
+        remove.textContent = "Delete record";
+        remove.addEventListener("click", () => {
+          paperActions = paperActions.filter(action => action.id !== item.id);
+          try { localStorage.setItem(PAPER_STORAGE_KEY, JSON.stringify(paperActions)); renderPaperActions(); }
+          catch (error) { paperMessage.textContent = "Could not update browser storage. Please try again."; }
+        });
+        entry.append(title, details, remove);
+        paperActivityList.append(entry);
+      });
+    }
+
+    paperForm.addEventListener("submit", event => {
+      event.preventDefault();
+      const quantity = Number(document.getElementById("paperQuantity").value);
+      const participants = Number(document.getElementById("paperParticipants").value || 0);
+      if (!Number.isInteger(quantity) || quantity < 1 || quantity > 100000 || !Number.isInteger(participants) || participants < 0) {
+        paperMessage.textContent = "Enter a whole number of sheets (1–100,000) and a valid participant count.";
+        return;
+      }
+      const record = {
+        id: Date.now().toString() + Math.random().toString(16).slice(2),
+        type: document.getElementById("paperType").value,
+        quantity,
+        participants,
+        date: paperDate.value,
+        notes: document.getElementById("paperNotes").value.trim()
+      };
+      paperActions.push(record);
+      try {
+        localStorage.setItem(PAPER_STORAGE_KEY, JSON.stringify(paperActions));
+        paperMessage.textContent = "Paper-saving action saved! 🌱";
+        paperForm.reset();
+        paperDate.value = new Date().toLocaleDateString("en-CA");
+        document.getElementById("paperParticipants").value = "0";
+        renderPaperActions();
+      } catch (error) {
+        paperActions.pop();
+        paperMessage.textContent = "Your browser could not save this record. Check browser storage settings.";
+      }
+    });
+
+    renderQuizQuestions();
+
+    renderPaperActions();
+    renderDashboard();
+    renderActivities();
+  </script>
+</body>
+</html>
